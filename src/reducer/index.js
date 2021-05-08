@@ -1,4 +1,4 @@
-import { FETCHING_DATA_START, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAIL } from '../actions/index';
+import { FETCHING_DATA_START, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAIL, SET_DATA } from '../actions/index';
 
 const initialState = {
     favorites: [],
@@ -25,6 +25,11 @@ export const reducer = (state=initialState, action) => {
                     ...state,
                     isFetching: false,
                     error: action.payload
+                });
+            case(SET_DATA):
+                return({
+                    ...state,
+                    data: action.payload
                 });
         default:
             return state
