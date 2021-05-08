@@ -1,0 +1,4 @@
+import axios from 'axios';
+export const FETCHING_DATA_START = "FETCHING_DATA_START";
+export const FETCHING_DATA_SUCCESS = "FETCHING_DATA_SUCCESS"
+export const FETCHING_DATA_FAIL = "FETCHING_DATA_FAIL"
