@@ -1,8 +1,10 @@
 import { FETCHING_DATA_START, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAIL, SET_DATA } from '../actions/index';
+import { mockData } from '../data/mockData';
 
 const initialState = {
     favorites: [],
-    data: {},
+    // Remove mockData when search is reenabled
+    data: mockData.data,
     isFetching: false,
     error: ''
 }

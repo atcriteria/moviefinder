@@ -9,7 +9,8 @@ export const getData = (searchCriteria) => dispatch => {
     console.log(`getData called with ${searchCriteria} and ${Key}`)
     dispatch({type: FETCHING_DATA_START})
     axios
-        .get(`http://www.omdbapi.com/?s=${searchCriteria.search}&apikey=${Key}`)
+        // Reenable to implement searches
+        // .get(`http://www.omdbapi.com/?s=${searchCriteria.search}&apikey=${Key}`)
         .then(res => {
             console.log("actions line 12 result: ", res);
             dispatch({type: FETCHING_DATA_SUCCESS})
