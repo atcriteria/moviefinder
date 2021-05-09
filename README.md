@@ -12,4 +12,4 @@ Movie Finder is an application that allows users to search for movies and mark t
 - Type a name into the search bar and press the search button to query the API for movies relating to your search criteria.
 - Select the star button to add a movie to your favorites.
 - Select the minus button to remove a movie from your favorites.
-- Data is maintained via local storage. Clear local storage to clear saved movie data.
+- Data is maintained via local storage. Clear local storage to clear saved movie data..
