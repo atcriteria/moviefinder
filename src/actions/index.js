@@ -4,7 +4,8 @@ export const FETCHING_DATA_START = "FETCHING_DATA_START";
 export const FETCHING_DATA_SUCCESS = "FETCHING_DATA_SUCCESS";
 export const FETCHING_DATA_FAIL = "FETCHING_DATA_FAIL";
 export const SET_DATA = "SET_DATA";
-export const ADD_FAVORITE = "ADD_FAVORITE"
+export const ADD_FAVORITE = "ADD_FAVORITE";
+export const REMOVE_FAVORITE = "REMOVE_FAVORITE";
 
 export const getData = (searchCriteria) => dispatch => {
     dispatch({type: FETCHING_DATA_START})
@@ -22,4 +23,8 @@ export const getData = (searchCriteria) => dispatch => {
 
 export const addFavorite = (favorite) => dispatch => {
     dispatch({type: ADD_FAVORITE, payload: favorite})
+}
+
+export const removeFavorite = (favorite) => dispatch => {
+    dispatch({type: REMOVE_FAVORITE, payload: favorite})
 }

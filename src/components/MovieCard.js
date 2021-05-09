@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {connect} from 'react-redux';
-import {addFavorite} from '../actions/index';
+import {addFavorite, removeFavorite} from '../actions/index';
 import {useState} from 'react'
 
 export const MovieCard = ({movie, favorites, addFavorite, inFave}) =>{
@@ -8,6 +8,12 @@ export const MovieCard = ({movie, favorites, addFavorite, inFave}) =>{
 
     const toggleDisabled = () => {
         setDisabled(!disabled)
+    }
+
+    const clickRemove = (e) => {
+        e.preventDefault();
+        removeFavorite(movie)
+        toggleDisabled()
     }
 
     const clickFavorites = e => {
@@ -28,7 +34,11 @@ export const MovieCard = ({movie, favorites, addFavorite, inFave}) =>{
         <Card>
             <h3>{movie.Title} ({movie.Year})</h3>
             <CardImg src={movie.Poster} alt={movie.Title + " movie poster"} />
-            <CardButton onClick={clickFavorites} disabled={disabled}>+ Favorites</CardButton>
+            {
+                (disabled) ? 
+                <CardButton onClick={clickRemove} >Remove Nomination</CardButton> :
+                <CardButton onClick={clickFavorites} disabled={disabled}>Nominate Movie</CardButton>
+            }
         </Card>
     )
 }

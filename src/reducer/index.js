@@ -1,4 +1,4 @@
-import { FETCHING_DATA_START, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAIL, SET_DATA, ADD_FAVORITE } from '../actions/index';
+import { FETCHING_DATA_START, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAIL, SET_DATA, ADD_FAVORITE, REMOVE_FAVORITE } from '../actions/index';
 // import { mockData } from '../data/mockData';
 
 const initialState = {
@@ -48,6 +48,16 @@ export const reducer = (state=initialState, action) => {
                     ...state,
                     favorites: working
                 });
+            case(REMOVE_FAVORITE):
+                let spliceFavorites = state.favorites;
+                let ind = spliceFavorites.indexOf(action.payload)
+                if (ind > -1){
+                    spliceFavorites.splice(ind, 1)
+                }
+                return({
+                    ...state,
+                    favorites: spliceFavorites
+                })
         default:
             return state
     }
