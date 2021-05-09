@@ -1,10 +1,18 @@
-import { FETCHING_DATA_START, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAIL, SET_DATA } from '../actions/index';
-import { mockData } from '../data/mockData';
+import { FETCHING_DATA_START, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAIL, SET_DATA, ADD_FAVORITE } from '../actions/index';
+// import { mockData } from '../data/mockData';
 
 const initialState = {
-    favorites: [],
+    favorites: [
+        // {
+        //     Poster: "https://m.media-amazon.com/images/M/MV5BY2JmMDJlMmEtYTk4OS00YWQ5LTk2NzMtM2M3NzhkMjI4MGJkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
+        //     Title: "Cats & Dogs",
+        //     Type: "movie",
+        //     Year: "2001",
+        //     imdbID: "tt0239395"
+        // },
+    ],
     // Remove mockData when search is reenabled
-    data: mockData.data,
+    data: [],
     isFetching: false,
     error: ''
 }
@@ -32,6 +40,13 @@ export const reducer = (state=initialState, action) => {
                 return({
                     ...state,
                     data: action.payload
+                });
+            case(ADD_FAVORITE):
+                let working = state.favorites
+                working.push(action.payload)
+                return({
+                    ...state,
+                    favorites: working
                 });
         default:
             return state

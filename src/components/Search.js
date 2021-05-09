@@ -19,7 +19,6 @@ const Search = ({getData}) => {
     }
     const handleSubmit = e => {
         e.preventDefault();
-        console.log("handleSubmit called", search.name)
         // alert(`Implement me! You searched for: "${search.name}"`)
         // Currently we only search for name, but we can extend
         // this to account for other variables, such as year
