@@ -1,4 +1,5 @@
 # Movie Finder
+- Hosted with Vercel, click [this link](https://bl-shoppies.vercel.app/) to visit the live application!
 
 Movie Finder is an application that allows users to search for movies and mark them as "favorites". Favorites will be nominated for best movie at the yearly movie awards, a fake ceremony to appreciate everyones favorite movies of all time!
 
