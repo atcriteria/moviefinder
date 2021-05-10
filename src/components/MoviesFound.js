@@ -4,14 +4,14 @@ import styled from 'styled-components';
 import checkIfFave from '../utils/checkIfFave';
 
 export const MoviesFound = (props) => {
-    const {data, favorites} = props;
+    const {data, favorites, setFaveCount} = props;
 
     return(
         <MovieContainer>
             {
                 data.map(movie => {
                     let disabled = checkIfFave(favorites, movie);
-                    return <MovieCard inFave={disabled} movie={movie} key={Math.random()} />
+                    return <MovieCard inFave={disabled} movie={movie} setFaveCount={setFaveCount} key={Math.random()} />
                 })
             }
         </MovieContainer>
@@ -24,7 +24,7 @@ const mapStateToProps = state => {
         favorites: state.favorites
     }
 }
-export default connect(mapStateToProps, {})(MoviesFound)
+export default connect(mapStateToProps)(MoviesFound)
 
 const MovieContainer = styled.div`
 width: 80%;

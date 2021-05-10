@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {addFavorite, removeFavorite} from '../actions/index';
 import {useState} from 'react'
 
-export const MovieCard = ({movie, favorites, addFavorite, inFave}) =>{
+export const MovieCard = ({movie, favorites, addFavorite, inFave, removeFavorite, setFaveCount}) =>{
     const [disabled, setDisabled] = useState(inFave)
 
     const toggleDisabled = () => {
@@ -12,8 +12,9 @@ export const MovieCard = ({movie, favorites, addFavorite, inFave}) =>{
 
     const clickRemove = (e) => {
         e.preventDefault();
-        removeFavorite(movie)
         toggleDisabled()
+        setFaveCount(-1)
+        removeFavorite(movie)
     }
 
     const clickFavorites = e => {
@@ -27,9 +28,9 @@ export const MovieCard = ({movie, favorites, addFavorite, inFave}) =>{
             return
         }
         toggleDisabled()
+        setFaveCount(1)
         addFavorite(movie)
     }
-
     return(
         <Card>
             <h3>{movie.Title} ({movie.Year})</h3>
@@ -49,7 +50,7 @@ const mapStateToProps = state => {
         favorites: state.favorites
     }
 }
-export default connect(mapStateToProps, {addFavorite})(MovieCard)
+export default connect(mapStateToProps, {addFavorite, removeFavorite})(MovieCard)
 
 const Card = styled.div`
 width: 20%;

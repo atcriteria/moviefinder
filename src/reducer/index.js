@@ -42,8 +42,7 @@ export const reducer = (state=initialState, action) => {
                     data: action.payload
                 });
             case(ADD_FAVORITE):
-                let working = state.favorites
-                working.push(action.payload)
+                let working = [action.payload, ...state.favorites]
                 return({
                     ...state,
                     favorites: working

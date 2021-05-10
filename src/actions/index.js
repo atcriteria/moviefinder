@@ -26,5 +26,6 @@ export const addFavorite = (favorite) => dispatch => {
 }
 
 export const removeFavorite = (favorite) => dispatch => {
+    console.log(`removeFavorite called with ${favorite}`)
     dispatch({type: REMOVE_FAVORITE, payload: favorite})
 }

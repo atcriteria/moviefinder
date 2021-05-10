@@ -1,14 +1,18 @@
 import {connect} from 'react-redux';
-import {MovieCard} from './MovieCard';
+import FavoriteCard from './FavoriteCard';
 
-const Favorites = ({favorites}) => {
+const Favorites = ({favorites, setFaveCount}) => {
+
     return(
         <div>
             <h1>Faves</h1>
             {
-                (favorites.length === 0) ? "" :
                 favorites.map(fave => {
-                    return (<MovieCard fave={fave} key={Math.random()} />)
+                    if(fave === undefined || fave === null){
+                        return ""
+                    } else {
+                        return (<FavoriteCard setFaveCount={setFaveCount} movie={fave} key={Math.random()} />)
+                    }
                 })
             }
         </div>
