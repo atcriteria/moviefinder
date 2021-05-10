@@ -9,6 +9,7 @@ export const MoviesFound = (props) => {
     return(
         <MovieContainer>
             {
+                (data === undefined) ? "No Results..." :
                 data.map(movie => {
                     let disabled = checkIfFave(favorites, movie);
                     return <MovieCard inFave={disabled} movie={movie} setFaveCount={setFaveCount} key={Math.random()} />
@@ -27,7 +28,8 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps)(MoviesFound)
 
 const MovieContainer = styled.div`
-width: 80%;
+font-size: .8rem;
+width: 40%;
 margin: auto;
 display: flex;
 flex-direction: row;

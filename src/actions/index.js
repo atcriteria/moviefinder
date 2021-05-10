@@ -11,7 +11,7 @@ export const getData = (searchCriteria) => dispatch => {
     dispatch({type: FETCHING_DATA_START})
     axios
         // Reenable to implement searches
-        .get(`http://www.omdbapi.com/?s=${searchCriteria.search}&apikey=${Key}`)
+        .get(`http://www.omdbapi.com/?type=movie&s=${searchCriteria.search}&apikey=${Key}`)
         .then(res => {
             dispatch({type: FETCHING_DATA_SUCCESS})
             dispatch({ type: SET_DATA, payload: res.data.Search })
@@ -26,6 +26,5 @@ export const addFavorite = (favorite) => dispatch => {
 }
 
 export const removeFavorite = (favorite) => dispatch => {
-    console.log(`removeFavorite called with ${favorite}`)
     dispatch({type: REMOVE_FAVORITE, payload: favorite})
 }

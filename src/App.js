@@ -6,14 +6,17 @@ import Search from './components/Search';
 import MoviesFound from './components/MoviesFound';
 import Favorites from './components/Favorites';
 import Complete from './components/Complete';
+import styled from 'styled-components';
 
 function App({favorites}) {
   const [count, setCount] = useState(favorites.length)
   const [showComplete, setShowComplete] = useState(false)
-  console.log(count)
 
   if(count===5 && !showComplete){
-    setShowComplete(!showComplete)
+    setShowComplete(true)
+  }
+  if (count < 5 && showComplete){
+    setShowComplete(false)
   }
 
   const setFaveCount = (num) => {
@@ -26,8 +29,10 @@ function App({favorites}) {
       <Header />
       <Complete showComplete={showComplete} />
       <Search />
-      <MoviesFound setFaveCount={setFaveCount} />
-      <Favorites setFaveCount={setFaveCount} />
+      <Section>
+        <MoviesFound setFaveCount={setFaveCount} />
+        <Favorites setFaveCount={setFaveCount} />
+      </Section>
     </div>
   );
 }
@@ -38,3 +43,11 @@ const mapStateToProps = state => {
   }
 }
 export default connect(mapStateToProps)(App)
+
+const Section = styled.section`
+width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+`

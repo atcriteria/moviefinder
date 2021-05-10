@@ -33,7 +33,7 @@ export const MovieCard = ({movie, favorites, addFavorite, inFave, removeFavorite
     }
     return(
         <Card>
-            <h3>{movie.Title} ({movie.Year})</h3>
+            <CardHeader>{movie.Title} ({movie.Year})</CardHeader>
             <CardImg src={movie.Poster} alt={movie.Title + " movie poster"} />
             {
                 (disabled) ? 
@@ -54,20 +54,24 @@ export default connect(mapStateToProps, {addFavorite, removeFavorite})(MovieCard
 
 const Card = styled.div`
 width: 20%;
-height: 500px;
 margin: 2.5% 2.5%;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
 align-items: center;
 background-image: linear-gradient(to bottom, rgba(0,0,0,0), black);
+font-family: Arial, Helvetica, sans-serif;
 @media (max-width: 375px){
     width: 95%;
 }
 `
 
+const CardHeader = styled.h3`
+margin-top: 2.5%;
+`
+
 const CardImg = styled.img`
-width:80%;
+max-width:50%;
 `
 
 const CardButton = styled.button`
